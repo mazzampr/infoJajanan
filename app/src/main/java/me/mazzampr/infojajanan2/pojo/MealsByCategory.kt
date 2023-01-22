@@ -1,6 +1,6 @@
 package me.mazzampr.infojajanan2.pojo
 
-data class CategoryMealsItem(
+data class MealsByCategory(
     val idMeal: String,
     val strMeal: String,
     val strMealThumb: String

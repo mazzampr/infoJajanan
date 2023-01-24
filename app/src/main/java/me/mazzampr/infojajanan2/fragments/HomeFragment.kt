@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import me.mazzampr.infojajanan2.activities.CategoryDetailActivity
 import me.mazzampr.infojajanan2.activities.DetailActivity
 import me.mazzampr.infojajanan2.adapters.CategoriesAdapter
 import me.mazzampr.infojajanan2.adapters.PopularMealAdapter
@@ -31,6 +32,7 @@ class HomeFragment : Fragment() {
         const val MEAL_ID = "me.mazzampr.infojajanan2.fragments.idMeal"
         const val MEAL_NAME = "me.mazzampr.infojajanan2.fragments.nameMeal"
         const val MEAL_THUMB = "me.mazzampr.infojajanan2.fragments.thumbMeal"
+        const val CATEGORY_NAME = "me.mazzampr.infojajanan2.fragments.categoryName"
 
     }
 
@@ -56,6 +58,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preparePopularItemsRecyclerView()
+        prepareCategoriesRecyclerView()
+
+        homeMvvm.getCategories()
+        observeCategoriesLiveData()
+        onCategoriesItemClicked()
 
         homeMvvm.getRandomMeal()
         observerRandomMeal()
@@ -65,10 +72,16 @@ class HomeFragment : Fragment() {
         observePopularItemsLiveData()
         onPopularItemClick()
 
-        homeMvvm.getCategories()
-        observeCategoriesLiveData()
-        prepareCategoriesRecyclerView()
 
+
+    }
+
+    private fun onCategoriesItemClicked() {
+        categoriesAdapter.onItemClicked = { categoriesItem ->
+            val intent = Intent(activity, CategoryDetailActivity::class.java)
+            intent.putExtra(CATEGORY_NAME, categoriesItem.strCategory)
+            startActivity(intent)
+        }
     }
 
     private fun prepareCategoriesRecyclerView() {
@@ -82,6 +95,9 @@ class HomeFragment : Fragment() {
         homeMvvm.observeCategoriesLiveData().observe(viewLifecycleOwner
         ) { categories ->
                 categoriesAdapter.setCategoriesItem(categories)
+                categories.forEach {
+                    Log.d("List Category", it.strCategory.toString())
+                }
         }
     }
 

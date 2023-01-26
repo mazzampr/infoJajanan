@@ -20,7 +20,7 @@ class DetailMealViewModel(): ViewModel() {
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
                 if(response.body() != null) {
                     mealDetailLiveData.value = response.body()!!.meals[0]
-                    Log.d("TES Detail", mealDetailLiveData.value!!.strCategory)
+                    Log.d("TES Detail", mealDetailLiveData.value!!.strCategory.toString())
                 }
                 else
                     return

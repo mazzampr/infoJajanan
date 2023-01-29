@@ -130,14 +130,15 @@
         android:gravity="bottom">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_favorite"
-            android:backgroundTint="@color/green"
-            android:tint="@color/white"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_16sdp"
-            android:layout_marginBottom="@dimen/_16sdp"/>
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_favorite"
+            android:tint="@color/white" />
 
     </RelativeLayout>
 

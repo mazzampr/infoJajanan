@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_16sdp"
-        tools:listitem="@layout/item_category_detail" />
+        tools:listitem="@layout/meals_item" />
 
 
 </LinearLayout>

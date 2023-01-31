@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import me.mazzampr.infojajanan2.databinding.CategoryItemBinding
-import me.mazzampr.infojajanan2.databinding.ItemCategoryDetailBinding
+import me.mazzampr.infojajanan2.databinding.MealsItemBinding
 import me.mazzampr.infojajanan2.pojo.MealsByCategory
 
 class CategoriesMealsDetailAdapter: RecyclerView.Adapter<CategoriesMealsDetailAdapter.CategoriesMealsViewHolder>() {
@@ -19,11 +18,11 @@ class CategoriesMealsDetailAdapter: RecyclerView.Adapter<CategoriesMealsDetailAd
         notifyDataSetChanged()
     }
 
-    inner class CategoriesMealsViewHolder(val binding: ItemCategoryDetailBinding): RecyclerView.ViewHolder(binding.root)
+    inner class CategoriesMealsViewHolder(val binding: MealsItemBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesMealsViewHolder {
         return CategoriesMealsViewHolder(
-            ItemCategoryDetailBinding.inflate(LayoutInflater.from(parent.context))
+            MealsItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
 

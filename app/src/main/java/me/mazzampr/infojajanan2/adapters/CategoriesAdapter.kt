@@ -13,6 +13,7 @@ class CategoriesAdapter: RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHo
 
     fun setCategoriesItem(categoriesList: List<CategoriesItem>) {
         this.categoriesList = categoriesList as ArrayList<CategoriesItem>
+        notifyDataSetChanged()
     }
 
     inner class CategoriesViewHolder(val binding: CategoryItemBinding): RecyclerView.ViewHolder(binding.root)

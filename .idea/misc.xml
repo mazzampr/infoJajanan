@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/drawable/ic_categories.xml" value="0.128" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/drawable/ic_favorite.xml" value="0.114" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/drawable/ic_favorite_filled_white.xml" value="0.114" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/drawable/ic_favorite_white.xml" value="0.114" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/layout/activity_category_detail.xml" value="0.12" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/layout/activity_detail.xml" value="0.22" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/InfoJajanan2/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />

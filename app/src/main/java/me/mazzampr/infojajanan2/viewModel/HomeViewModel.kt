@@ -78,6 +78,7 @@ class HomeViewModel(
         }
     }
 
+
     fun observeRandomMealLiveData():LiveData<Meal> {
         return randomMealLiveData
     }

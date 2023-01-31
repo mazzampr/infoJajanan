@@ -137,8 +137,7 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
             android:backgroundTint="@color/green"
-            android:src="@drawable/ic_favorite"
-            android:tint="@color/white" />
+            android:src="@drawable/ic_favorite_white" />
 
     </RelativeLayout>
 

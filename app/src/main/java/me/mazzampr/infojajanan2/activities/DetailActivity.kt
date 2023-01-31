@@ -44,8 +44,17 @@ class DetailActivity : AppCompatActivity() {
     private fun onFavoriteClick() {
         binding.btnFavorite.setOnClickListener {
             mealToSave?.let {
-                mealMvvm.insertMeal(it)
-                Toast.makeText(this, "Meal Saved", Toast.LENGTH_SHORT).show()
+                    if (!it.strFavorite) {
+                        it.strFavorite = true
+                        mealMvvm.insertMeal(it)
+                        Toast.makeText(this, "Meal Liked", Toast.LENGTH_SHORT).show()
+                        binding.btnFavorite.setImageResource(R.drawable.ic__favorite_fill)
+                    } else {
+                        it.strFavorite = false
+                        mealMvvm.deleteMeal(it)
+                        Toast.makeText(this, "Meal Unliked", Toast.LENGTH_SHORT).show()
+                        binding.btnFavorite.setImageResource(R.drawable.ic_favorite_white)
+                    }
             }
         }
     }
@@ -60,6 +69,9 @@ class DetailActivity : AppCompatActivity() {
                 binding.tvTitle.text = meal!!.strMeal
                 binding.tvCategory.text = meal!!.strCategory
                 binding.tvInstructions.text = meal!!.strInstructions
+                if(meal.strFavorite) {
+                    binding.btnFavorite.setImageResource(R.drawable.ic__favorite_fill)
+                }
             }
         })
     }

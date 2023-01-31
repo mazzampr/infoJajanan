@@ -14,4 +14,7 @@ interface MealDao {
 
     @Query("SELECT * FROM mealInformation")
     fun getAllMeal(): LiveData<List<Meal>>
+
+    @Query("SELECT COUNT() FROM mealInformation WHERE idMeal = :id")
+    suspend fun isExist(id: String): Int
 }

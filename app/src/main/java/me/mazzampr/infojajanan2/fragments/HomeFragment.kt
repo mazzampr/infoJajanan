@@ -93,9 +93,6 @@ class HomeFragment : Fragment() {
         viewModel.observeCategoriesLiveData().observe(viewLifecycleOwner
         ) { categories ->
                 categoriesAdapter.setCategoriesItem(categories)
-                categories.forEach {
-                    Log.d("List Category", it.strCategory.toString())
-                }
         }
     }
 

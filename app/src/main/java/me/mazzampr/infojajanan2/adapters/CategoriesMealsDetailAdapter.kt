@@ -8,7 +8,7 @@ import me.mazzampr.infojajanan2.databinding.MealsItemBinding
 import me.mazzampr.infojajanan2.pojo.MealsByCategory
 
 class CategoriesMealsDetailAdapter: RecyclerView.Adapter<CategoriesMealsDetailAdapter.CategoriesMealsViewHolder>() {
-
+    lateinit var onItemClicked: ((MealsByCategory) -> Unit)
     private var categoriesMealsList = ArrayList<MealsByCategory>()
 
     fun setCategoryMeals(categoriesMealsList: List<MealsByCategory>) {
@@ -31,6 +31,9 @@ class CategoriesMealsDetailAdapter: RecyclerView.Adapter<CategoriesMealsDetailAd
             .load(categoriesMealsList[position].strMealThumb)
             .into(holder.binding.imgCategoryDetail)
         holder.binding.tvCategoryNameDetail.text = categoriesMealsList[position].strMeal
+        holder.itemView.setOnClickListener {
+            onItemClicked.invoke(categoriesMealsList[position])
+        }
     }
 
     override fun getItemCount(): Int {

@@ -1,5 +1,6 @@
 package me.mazzampr.infojajanan2.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
@@ -27,8 +28,18 @@ class CategoryDetailActivity : AppCompatActivity() {
         getCategoryName()
         categoryMvvm.getCategoryMealsList(categoryName)
         observeCategoryMealsLiveData()
+        onMealItemClicked()
 
+    }
 
+    private fun onMealItemClicked() {
+        categoryAdapter.onItemClicked = { meal ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(HomeFragment.MEAL_ID, meal.idMeal)
+            intent.putExtra(HomeFragment.MEAL_NAME, meal.strMeal)
+            intent.putExtra(HomeFragment.MEAL_THUMB, meal.strMealThumb)
+            startActivity(intent)
+        }
     }
 
     private fun prepareCategoryDetailsRecyclerView() {

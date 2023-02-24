@@ -9,6 +9,7 @@ import me.mazzampr.infojajanan2.pojo.MealsByCategory
 
 class PopularMealAdapter(): RecyclerView.Adapter<PopularMealAdapter.MealPopularViewHolder>() {
     lateinit var onItemClick: ((MealsByCategory) -> Unit)
+    var onLongItemClick: ((MealsByCategory) -> Unit)? = null
     private var mealsList = ArrayList<MealsByCategory>()
 
     fun setMeals(mealsList: ArrayList<MealsByCategory>) {
@@ -27,6 +28,10 @@ class PopularMealAdapter(): RecyclerView.Adapter<PopularMealAdapter.MealPopularV
 
         holder.itemView.setOnClickListener {
             onItemClick.invoke(mealsList[position])
+        }
+        holder.itemView.setOnLongClickListener {
+            onLongItemClick?.invoke(mealsList[position])
+            true
         }
     }
 

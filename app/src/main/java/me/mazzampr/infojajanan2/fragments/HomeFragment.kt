@@ -16,6 +16,7 @@ import me.mazzampr.infojajanan2.activities.MainActivity
 import me.mazzampr.infojajanan2.adapters.CategoriesAdapter
 import me.mazzampr.infojajanan2.adapters.PopularMealAdapter
 import me.mazzampr.infojajanan2.databinding.FragmentHomeBinding
+import me.mazzampr.infojajanan2.fragments.bottomsheets.MealBottomSheetFragment
 import me.mazzampr.infojajanan2.pojo.MealsByCategory
 import me.mazzampr.infojajanan2.pojo.Meal
 import me.mazzampr.infojajanan2.viewModel.HomeViewModel
@@ -71,7 +72,15 @@ class HomeFragment : Fragment() {
         viewModel.getPopularMeals()
         observePopularItemsLiveData()
         onPopularItemClick()
+        onPopularItemLongClick()
 
+    }
+
+    private fun onPopularItemLongClick() {
+        popularItemsAdapter.onLongItemClick = { meal ->
+            val mealBottomSheetFragment = MealBottomSheetFragment.newInstance(meal.idMeal)
+            mealBottomSheetFragment.show(childFragmentManager, "Meal Info")
+        }
     }
 
     private fun onCategoriesItemClicked() {

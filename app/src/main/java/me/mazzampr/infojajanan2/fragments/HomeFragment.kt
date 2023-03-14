@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
         const val CATEGORY_NAME = "me.mazzampr.infojajanan2.fragments.categoryName"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //      homeMvvm = ViewModelProviders.of(this)[HomeViewModel::class.java]

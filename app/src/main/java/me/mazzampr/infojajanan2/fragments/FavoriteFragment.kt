@@ -1,5 +1,6 @@
 package me.mazzampr.infojajanan2.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -58,11 +59,11 @@ class FavoriteFragment : Fragment() {
                 target: RecyclerView.ViewHolder,
             ) = true
 
+            @SuppressLint("SuspiciousIndentation")
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val itemDeleted = favoritesAdapter.differ.currentList[position]
                     viewModel.deleteMeal(itemDeleted)
-
 
                 Snackbar.make(requireView(), "Meal deleted", Snackbar.LENGTH_LONG).setAction(
                     "Undo",
